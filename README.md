@@ -32,4 +32,4 @@ The core algorithm is based on the original RISE framework, with modifications t
 
 Each method generates perturbations using **Gaussian noise** and evaluates how these perturbations impact the model's predictions. The result is a measure of the importance of different regions (spatial) and time steps (temporal).
 
-For more detailed descriptions, refer to the thesis document linked here: [Thesis PDF](link-to-thesis).
+For more detailed descriptions, refer to the thesis document linked here: [Article PDF](link-to-thesis).
