@@ -7,8 +7,6 @@ This repository contains the implementation of various extensions of the Randomi
 ## Table of Contents
 - [Introduction](#introduction)
 - [Methodology](#methodology)
-- [Installation](#installation)
-- [Usage](#usage)
 - [Code Structure](#code-structure)
 - [Examples](#examples)
 - [Evaluation Metrics](#evaluation-metrics)
@@ -33,3 +31,25 @@ The core algorithm is based on the original RISE framework, with modifications t
 Each method generates perturbations using **Gaussian noise** and evaluates how these perturbations impact the model's predictions. The result is a measure of the importance of different regions (spatial) and time steps (temporal).
 
 For more detailed descriptions, refer to the article linked here: [Article PDF](link-to-article).
+
+## Code Structure
+The repository contains several Jupyter notebooks located in the `notebooks/` directory:
+
+- **ST_RISE**: Contains the generic code skeleton for Spatial-Temporal RISE.
+- **ST_RISE_Testing_Deletion** and **ST_RISE_Testing_Insertion**: These notebooks contain testing on the Vottignasco Test-Set, generating saliency videos for all instances. Additionally, they include Insertion/Deletion testing, along with plots showing the errors across all instances.
+- **Spatial-RISE**: Implementation of the spatial component with testing, generating saliency maps for all instances in Vottignasco, along with Insertion/Deletion tests.
+- **Temporal-RISE**: Similar to the Spatial-RISE notebook, but focusing on the temporal component, generating saliency vectors for the instances.
+- **insertion&deletion_mean_Spatial_Temporal_ST_RISE**: Contains the mean saliency results (maps, vectors, videos) for Insertion/Deletion across all instances, as well as cumulative plots for the three components: space, time, and space-time.
+
+## Evaluation Metrics
+The evaluation metrics used in this project are adapted from the original RISE method to fit the context of **time-series of hydrological images**. The key metrics are:
+
+- **Insertion**: Measures the change in model confidence as salient frames (temporal), pixels (spatial), or both (spatial-temporal) are added back.
+- **Deletion**: Measures the impact on model confidence when salient frames (temporal), pixels (spatial), or both (spatial-temporal) are removed.
+
+These metrics help quantify the importance of both spatial and temporal regions in the model's decision-making process, depending on the specific RISE extension being applied (Spatial, Temporal, or SpatialTemporal).
+
+
+## License
+This project is licensed under the MIT License. See the LICENSE file for details.
+
